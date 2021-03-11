@@ -1,0 +1,130 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "RoutingDemo.RoutingDemo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/S4HC/sap/opu/odata/sap/API_SALES_ORDER_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+	}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+	     "rootView": {
+			"viewName": "RoutingDemo.RoutingDemo.view.app",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "RoutingDemo.RoutingDemo.i18n.i18n"
+				}
+			},
+		  "": {
+				"dataSource": "mainService",
+				"preload": true
+			}	
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "RoutingDemo.RoutingDemo.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": "notfound"
+				}
+			},
+			"routes": [{
+				"name": "RouteHome",
+				"pattern": "",
+				"target": ["TargetHome"]
+			},
+			{
+				"name": "SalesList",
+				"pattern": "salesdata{sord}",
+				"target": ["SalesList"]
+			}],
+			"targets": {
+				"TargetHome": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"notfound":{
+					"viewType": "XML",
+					"viewId": "notfound",
+					"viewName": "notfound",
+					"transition": "show"
+					
+				},
+				"SalesList":{
+					"viewType": "XML",
+					"viewId": "SalesData",
+					"viewName": "SalesData",
+					"viewLevel": 2,
+					"viewPath": "RoutingDemo.RoutingDemo.view",
+					"transition": "show"
+					}
+			}
+		}
+	}
+}

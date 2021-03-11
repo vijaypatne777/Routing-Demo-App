@@ -1,0 +1,25 @@
+<mvc:View controllerName="RoutingDemo.RoutingDemo.controller.SalesData" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	
+				<Page id="spage" title="{i18n>stitle} {SalesOrder}" showNavButton="true" navButtonPress="gohome">
+					<content>
+				     <Panel>
+				     <headerToolbar>
+				     	<Toolbar>
+				     		
+				     	<Title text="Details of {SalesOrder}" level="H2"/>
+				     		
+				     	</Toolbar>
+				     </headerToolbar>
+				     <content>
+				     <f:SimpleForm title="Sales Order Details">
+				     <f:content>
+				     <Label text="{i18n>amt}"/>	
+				     <Text text="{TotalNetAmount}"/>
+				     </f:content>
+				     </f:SimpleForm>
+				     </content>
+				     </Panel>
+					</content>
+				</Page>
+	
+</mvc:View>

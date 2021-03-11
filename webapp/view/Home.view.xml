@@ -1,0 +1,40 @@
+<mvc:View controllerName="RoutingDemo.RoutingDemo.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page id="hpage" title="{i18n>title}">
+		<content>
+		
+			<Table id="stable" growing="true" growingScrollToLoad="true" items="{ path: '/rec' }"
+			       mode="SingleSelectLeft" includeItemInSelection="true" enableBusyIndicator="true">
+				<headerToolbar>
+					<Toolbar>
+					<Title text="Sales Orders" level="H2"></Title>	
+					<Button id="do" text="DisplayDetails" width="10em" press=".handlePress"></Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Sales Order"></Text>
+					</Column>
+					<Column>
+						<Text text="Sales Organization"></Text>
+					</Column>
+					<Column>
+						<Text text="Distribution Channel"></Text>
+					</Column>
+					<Column>
+						<Text text="Division"></Text>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{SalesOrder}"/>
+							<Text text="{SalesOrg}"/>
+							<Text text="{Dchnl}"/>
+							<Text text="{Div}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

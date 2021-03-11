@@ -1,0 +1,9 @@
+<mvc:View controllerName="RoutingDemo.RoutingDemo.controller.notfound" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+ <MessagePage
+      title="{i18n>NotFound}"
+      text="{i18n>NotFound.text}"
+      description="{i18n>NotFound.description}"
+      showNavButton="true"
+      navButtonPress="goback"
+      />
+</mvc:View>
